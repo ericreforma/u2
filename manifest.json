@@ -1,0 +1,62 @@
+{
+	"name": "U体育|UED全新升级品牌德甲奥格斯堡官方合作伙伴",
+	"short_name": "U体育|UED全新升级品牌德甲奥格斯堡官方合作伙伴",
+	"lang": "zh_CN",
+	"start_url": "/",
+	"theme_color": "#8bdc65",
+	"background_color": "#fff",
+	"display": "standalone",
+	"orientation": "portrait",
+	"icons": [
+		{
+			"src": "icons/icon72.png",
+			"type": "image/png",
+			"sizes": "72x72"
+		},
+		{
+			"src": "icons/icon96.png",
+			"type": "image/png",
+			"sizes": "96x96"
+		},
+		{
+			"src": "icons/icon120.png",
+			"type": "image/png",
+			"sizes": "120x120"
+		},
+		{
+			"src": "icons/icon128.png",
+			"type": "image/png",
+			"sizes": "128x128"
+		},
+		{
+			"src": "icons/icon144.png",
+			"type": "image/png",
+			"sizes": "144x144"
+		},
+		{
+			"src": "icons/icon152.png",
+			"type": "image/png",
+			"sizes": "152x152"
+		},
+		{
+			"src": "icons/icon180.png",
+			"type": "image/png",
+			"sizes": "180x180"
+		},
+		{
+			"src": "icons/icon192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "icons/icon384.png",
+			"type": "image/png",
+			"sizes": "384x384"
+		},
+		{
+			"src": "icons/icon512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}
