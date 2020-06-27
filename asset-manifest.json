@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/u2/static/css/main.3d1a0f55.chunk.css",
+    "main.css": "/u2/static/css/main.422927b8.chunk.css",
     "main.js": "/u2/static/js/main.349c6905.chunk.js",
     "main.js.map": "/u2/static/js/main.349c6905.chunk.js.map",
     "runtime-main.js": "/u2/static/js/runtime-main.85d4b8e1.js",
@@ -9,10 +9,10 @@
     "static/js/2.823afbed.chunk.js": "/u2/static/js/2.823afbed.chunk.js",
     "static/js/2.823afbed.chunk.js.map": "/u2/static/js/2.823afbed.chunk.js.map",
     "index.html": "/u2/index.html",
-    "precache-manifest.ac9728a7b2eecf0bbd3de8b10bfd02cc.js": "/u2/precache-manifest.ac9728a7b2eecf0bbd3de8b10bfd02cc.js",
+    "precache-manifest.d8adaed6cc24a80156e4ce821c34036e.js": "/u2/precache-manifest.d8adaed6cc24a80156e4ce821c34036e.js",
     "service-worker.js": "/u2/service-worker.js",
     "static/css/2.84fe9f24.chunk.css.map": "/u2/static/css/2.84fe9f24.chunk.css.map",
-    "static/css/main.3d1a0f55.chunk.css.map": "/u2/static/css/main.3d1a0f55.chunk.css.map",
+    "static/css/main.422927b8.chunk.css.map": "/u2/static/css/main.422927b8.chunk.css.map",
     "static/js/2.823afbed.chunk.js.LICENSE.txt": "/u2/static/js/2.823afbed.chunk.js.LICENSE.txt",
     "static/media/ProfileSA.scss": "/u2/static/media/沙巴体育.09aff01a.png",
     "static/media/Dashboard.scss": "/u2/static/media/沙巴体育.aa5b401b.png",
@@ -50,7 +50,7 @@
     "static/js/runtime-main.85d4b8e1.js",
     "static/css/2.84fe9f24.chunk.css",
     "static/js/2.823afbed.chunk.js",
-    "static/css/main.3d1a0f55.chunk.css",
+    "static/css/main.422927b8.chunk.css",
     "static/js/main.349c6905.chunk.js"
   ]
 }
