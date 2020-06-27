@@ -1,0 +1,55 @@
+@import '_mixin';
+
+.ui-select {
+	position: relative;
+	.ui-select--input {
+		width: 100%;
+		cursor: pointer;
+		background: #fff;
+		border: 1px solid #dfebef;
+		padding: 10.5px 38px 10.5px 16px;
+		@include radius(5px);
+		span {
+			color: lighten(#55687d, 2);
+			@include font(18px, 500, 1.4);
+			&.has-value {
+				color: #55687d;
+			}
+		}
+		&:before {
+			content: '';
+			width: 10px;
+			height: 6px;
+			display: block;
+			pointer-events: none;
+			background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAuNjcyODYxIDBIOS4zMjcxNEM5LjkyNTg0IDAgMTAuMjI1MiAwLjc2NDg5OCA5LjgwMTM5IDEuMjEzMTZMNS40NzU5MyA1Ljc5MTg4QzUuMjEzNTggNi4wNjkzNyA0Ljc4NjQyIDYuMDY5MzcgNC41MjQwNyA1Ljc5MTg4TDAuMTk4NjA4IDEuMjEzMTZDLTAuMjI1MTkzIDAuNzY0ODk4IDAuMDc0MTU4NiAwIDAuNjcyODYxIDBaIiBmaWxsPSIjOEU5QkFFIi8+PC9zdmc+);
+			@include position(absolute, $top: calc(50% - 3px), $right: 16px);
+		}
+	}
+	.ui-select--list {
+		margin: 3px 0 0;
+		padding: 15px 0;
+		max-height: 320px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		background: #fff;
+		opacity: 0;
+		pointer-events: none;
+		@include position(absolute, $z-index: 500, $right: 0, $bottom: auto, $left: 0);
+		@include radius(5px);
+		@include shadow(0 4px 50px rgba(63, 61, 86, 0.1));
+		@include transform(translateY(10px));
+		@include transition(opacity .2s ease, transform .2s ease);
+		&.shown {
+			opacity: 1;
+			pointer-events: auto;
+			@include transform(translateY(0));
+		}
+		.list--item {
+			color: #55687d;
+			padding: 1px 33px;
+			cursor: pointer;
+			@include font(18px, 500);
+		}
+	}
+}

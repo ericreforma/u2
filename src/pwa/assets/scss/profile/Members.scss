@@ -1,0 +1,106 @@
+@import '../../../../assets/scss/mixin';
+
+.members {
+	.profile-wrap-sa-content {
+		.content-inner {
+			padding: 0 !important;
+		}
+	}
+}
+
+.table-columns {
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@include radius(0 0 20px 20px);
+	@include shadow(0 4px 16px rgba(#2a3354, .12));
+	p {
+		margin: 0 93px 0 0;
+		color: #212533;
+		padding: 12.5px 0;
+		@include font(18px, 500, 1.4);
+		&:last-child {
+			margin: 0;
+		}
+	}
+	&.sb {
+		padding: 0 34px;
+		justify-content: space-between;
+		p {
+			margin: 0;
+		}
+	}
+}
+
+.table-content {
+	padding: 30px 20px;
+	.table-content--item {
+		background: #fff;
+		margin: 0 0 20px;
+		padding: 0 10px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include radius(10px);
+		@include shadow(0 4px 16px rgba(#2a3354, .12));
+		&:last-child {
+			margin: 0;
+		}
+		p {
+			padding: 17.5px 0;
+			@include font(15px, 500, 1.4);
+			&:first-child {
+				color: #212533;
+			}
+			&:last-child {
+				color: #55687D;
+			}
+		}
+	}
+	&.table-like {
+		.inner {
+			display: flex;
+			align-items: center;
+			padding: 0 10px;
+		}
+		.detail {
+			padding: 10px;
+			border-top: 1px solid hsl(210, 20%, 94%);
+		}
+		.table-content--item {
+			padding: 0;
+			display: block;
+			cursor: pointer;
+			p {
+				flex: 1;
+				padding-right: 10px;
+			}
+			p:first-child {
+				flex: 1.6;
+				text-align: left;
+				min-width: 0;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			&.open {
+				p.arrow {
+					svg {
+						@include transform(rotate(180deg));
+					}
+				}
+			}
+			p.arrow {
+				flex: .2;
+				height: 6px;
+				padding: 0;
+				font-size: 0;
+				svg {
+					transform-origin: center center;
+					@include transition(transform .2s ease);
+				}
+			}
+		}
+	}
+}

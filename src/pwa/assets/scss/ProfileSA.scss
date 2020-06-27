@@ -1,0 +1,1139 @@
+@import '../../../assets/scss/mixin';
+
+.profile-sa {
+	padding: 0 0 37px 0;
+	.profile-sa-head {
+		@include position(fixed, $top: 0, $left: 0, $right: 0, $bottom: auto);
+	}
+	.profile-sa-content {
+		padding: 30px 20px;
+		padding-bottom: 77px;
+		.ui-tabs {
+			margin: 0 0 25px;
+		}
+		.profile-sa-menu {
+			background: #fff;
+			margin: 0 0 20px;
+			padding: 30px 20px;
+			display: flex;
+			flex-wrap: wrap;
+			@include radius(10px);
+			@include shadow(0 4px 16px rgba(42, 51, 84, .12));
+			&--item {
+				width: 25%;
+				margin: 0 0 55px;
+				@media screen and (max-width: 520px) {
+					width: 50%;
+				}
+				&:nth-last-child(-n+2) {
+					margin: 0 0 30px;
+				}
+				i {
+					display: block;
+					margin: 0 auto 3px auto;
+					background: no-repeat center center/cover;
+					@include size(35px, 35px);
+				}
+				p {
+					color: #212533;
+					text-align: center;
+					@include font(20px, 400, 29px);
+				}
+			}
+			@for $i from 1 through 14 {
+				&--item.item-n#{$i} {
+					i {
+						background-image: url(../img/profile/icon-#{$i}.png);
+					}
+				}
+			}
+		}
+		.profile-sa-logout {
+			button {
+				color: #fff;
+				width: 100%;
+				background: #8bdc65;
+				@include font(26px, 400, 50px);
+				@include radius(40px);
+			}
+		}
+	}
+}
+
+.profile-wrap-sa {
+	$head-height: 59px;
+	display: flex;
+	padding: $head-height 0 0;
+	.load-spin {
+		position: fixed !important;
+		z-index: 1000 !important;
+	}
+	.profile-wrap-sa-head {
+		height: $head-height;
+		padding: 0 30px;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include gradient2(-99deg, #c1ea4f 3%, #8bdc65 47%, #16885f 100%);
+		@include position(fixed, $z-index: 800, $top: 0, $left: 0, $right: 0, $bottom: auto);
+		svg {
+			fill: #fff;
+		}
+		a, button {
+			color: #fff;
+			span {
+				margin: 0 0 0 10px;
+				@include font(20px, 500);
+			}
+		}
+		button.faq-button {
+			padding: 2px 4px;
+		}
+		.center-name {
+			color: #fff;
+			text-align: center;
+			pointer-events: none;
+			@include position(absolute, $top: 0, $left: 0, $right: 0, $bottom: 0);
+			@include font(20px, 500, $head-height);
+		}
+	}
+	.profile-wrap-sa-content {
+		flex: 1;
+		padding: 0 0 75px;
+		.content-inner {
+			padding: 30px;
+		}
+	}
+	.message {
+		margin: 0 0 12px;
+		@include font(18px, 500);
+		&.invalid {
+			color: #e92a16;
+		}
+		&.valid {
+			color: #00a500;
+		}
+	}
+}
+
+.transactions-sa {
+	min-height: 100vh;
+	padding: 102px 0 77px 0;
+	.transactions-head {
+		@include position(fixed, $z-index: 200, $top: 0, $left: 0, $right: 0, $bottom: auto);
+	}
+	.transactions-back-wrap {
+		height: 59px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 30px;
+		@include gradient2(-100deg, #c1ea4f 5%, #8bdc65 45%, #16885f 100%);
+		a {
+			display: flex;
+			align-items: center;
+			svg {
+				fill: #fff;
+			}
+			p {
+				color: #fff;
+				margin: 0 0 0 7px;
+			}
+		}
+		button.faq {
+			svg {
+				fill: #fff;
+			}
+		}
+	}
+	.transactions-menu {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: #fff;
+		height: 43px;
+		padding: 0 30px;
+		@include radius(0 0 20px 20px);
+		@include shadow(0 4px 16px rgba(42, 51, 84, .12));
+		a {
+			color: #55687d;
+			@include font(16px, 400, 23px);
+			@include transition(color .2s ease);
+			&.active {
+				color: #16885f;
+				font-weight: 500;
+			}
+		}
+	}
+	.transactions-content {
+		padding: 20px;
+	}
+	.transactions-range {
+		padding: 3px 0;
+		.ui-tabs {
+			margin: 0;
+		}
+		.ui-tabs--tab {
+			font-size: 16px;
+			line-height: 23px;
+		}
+		.ui-tabs--selector {
+			@include gradient2(93deg, #dee12a 5%, #168858 100%);
+		}
+	}
+	.transactions-list {
+		margin: 20px 0 0;
+	}
+	.transaction {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+		@include radius(10px);
+		@include shadow(0 4px 16px rgba(42, 51, 84, .12));
+		&:not(:last-child) {
+			margin: 0 0 21px;
+		}
+		.content {
+			padding: 20px 10px 20px 20px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			@include radius(10px 0 0 10px);
+			&.washcode {
+				padding-right: 20px;
+			}
+			p {
+				@include font(14px, 500, 20px);
+			}
+			p.date {
+				color: #55687d;
+				max-width: 80px;
+			}
+			p.dist {
+				color: #212533;
+				max-width: 60px;
+				white-space: pre-line;
+			}
+			p.amount {
+				color: #55687d;
+			}
+		}
+		.status {
+			min-width: 48px;
+			white-space: nowrap;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #8e9bae;
+			@include radius(0 10px 10px 0);
+			span {
+				color: #fff;
+				@include font(14px, 500, 20px);
+			}
+			&.stat-待定 {
+				background: #8e9bae;
+			}
+			&.stat-成功 {
+				background: #16885f;
+			}
+			&.stat-拒绝 {
+				background: #db0100;
+			}
+			&.stat-ratio {
+				background: #fff;
+				min-width: 62px;
+				span {
+					color: #212533;
+				}
+			}
+		}
+	}
+	.transactions-overlay {
+		background: transparentize(#8e9bae, .5);
+		opacity: 0;
+		pointer-events: none;
+		overflow-y: auto;
+		@include flex-center;
+		@include position(fixed, $z-index: 1000, $top: 0, $left: 0, $right: 0, $bottom: 0);
+		@include transition(opacity .2s ease);
+		&.shown {
+			opacity: 1;
+			pointer-events: auto;
+		}
+		.transactions-overlay--inner {
+			width: 90%;
+			margin: auto;
+			padding: 40px 0;
+		}
+		.transactions-overlay--wrap {
+			background: #fff;
+			position: relative;
+			z-index: 1005;
+			@include radius(5px);
+			@include shadow(0 4px 16px rgba(42, 51, 84, .12));
+		}
+	}
+	.custom-range-form {
+		min-width: auto;
+		padding: 20px;
+		h2 {
+			@include font(18px, 500, 26px);
+		}
+	}
+	&.withdraws {
+		min-height: auto;
+		padding: 0;
+		margin: 60px 0 0;
+		.datepicker-modal {
+			position: fixed;
+		}
+		h1 {
+			text-align: center;
+			margin: 0 auto 20px;
+			color: #55687d;
+			@include font(24px, 400);
+		}
+		.transaction-outer {
+			margin: 0 0 20px;
+			cursor: pointer;
+			@include radius(10px);
+			@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+			&.shown {
+				.transaction {
+					border-bottom: 1px solid hsl(210, 20%, 96%);
+					.status {
+						@include radius(0 10px 0 0);
+					}
+				}
+				.transaction-details {
+					display: block;
+				}
+			}
+			&:last-child {
+				margin: 0;
+			}
+			.transaction {
+				margin: 0;
+				@include shadow(none);
+			}
+			.transaction-details {
+				display: none;
+				padding: 15px;
+				table {
+					border-spacing: 5px;
+				}
+				td:first-child {
+					color: #55687d;
+					@include font(14px, 500);
+				}
+				td:last-child {
+					color: #212533;
+					@include font(14px, 500);
+				}
+			}
+		}
+		.transaction {
+			.content {
+				flex-wrap: wrap;
+				padding: 20px;
+				white-space: normal;
+				p, button {
+					max-width: none;
+					&:nth-child(1n) {
+						flex: 1 0 65%;
+					}
+					&:nth-child(2n) {
+						flex: 1 0 35%;
+						text-align: right;
+					}
+					&:last-child {
+						margin: 10px 0 0;
+					}
+				}
+				button {
+					color: #16885f;
+					@include font(14px, 500);
+				}
+			}
+		}
+		&.desktop {
+			h1 {
+				color: #212533;
+				text-align: left;
+				font-size: 28px;
+				font-weight: 500;
+				margin: 0 0 60px;
+			}
+			.transactions-overlay--inner {
+				width: 520px !important;
+				min-width: auto;
+			}
+		}
+	}
+}
+
+.datepicker-modal {
+	background: transparentize(#8e9bae, .5);
+	z-index: 1001;
+}
+
+.datepicker.ios {
+	background: #fff;
+	.datepicker-navbar {
+		border-bottom: none !important;
+	}
+	.datepicker-navbar-btn {
+		color: #16885f !important;
+	}
+	.datepicker-viewport:after {
+		@include gradient2(#fff, rgba(255, 255, 255, 0) 52%, rgba(255, 255, 255, 0) 48%, #fff);
+	}
+}
+
+.deposit-sa {
+	min-height: 100vh;
+	padding: 59px 0 77px 0;
+	.deposit-head {
+		@include position(fixed, $z-index: 200, $top: 0, $left: 0, $right: 0, $bottom: auto);
+	}
+	.deposit-back-wrap {
+		height: 59px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 30px;
+		@include gradient2(-100deg, #c1ea4f 5%, #8bdc65 45%, #16885f 100%);
+		a {
+			display: flex;
+			align-items: center;
+			svg {
+				fill: #fff;
+			}
+			p {
+				color: #fff;
+				margin: 0 0 0 7px;
+			}
+		}
+		button.faq {
+			svg {
+				fill: #fff;
+			}
+		}
+	}
+	.deposit-content {
+		padding: 20px;
+	}
+}
+
+.profile-personal {
+	.fields {
+		input {
+			padding: 8.5px 16px;
+		}
+	}
+	.submit {
+		margin: 60px 0 0;
+		text-align: center;
+		button {
+			padding: 14.5px 46px;
+		}
+	}
+	.date-select-overlay {
+		@include overlay(
+			$background-color: rgba(#8e9bae, .5),
+		);
+		position: fixed;
+		align-items: flex-end;
+		justify-content: stretch;
+	}
+	.picker-wrap {
+		background: #fff;
+		width: 100%;
+		padding: 20px 30px;
+	}
+	.picker-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 0 15px;
+		p {
+			color: #212533;
+			@include font(18px, 500);
+		}
+		button {
+			color: #16885f;
+			@include font(20px, 400);
+		}
+	}
+}
+
+.profile-password {
+	height: 100%;
+	.fields {
+		input {
+			padding: 8.5px 16px;
+		}
+	}
+	.submit {
+		margin: 60px 0 0;
+		text-align: center;
+		button {
+			padding: 14.5px 46px;
+		}
+	}
+	.content-inner {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.password-tabs {
+		.password-tab {
+			width: 100%;
+			position: relative;
+			margin: 0 0 20px;
+			@include radius(5px);
+			@include gradient2(to right, #c1ea4f, #8bdc65 45%, #16885f 100%);
+			&:last-child {
+				margin: 0;
+			}
+			&:before {
+				content: '';
+				background: #fff;
+				@include radius(3px);
+				@include position(absolute, $top: 2px, $right: 2px, $bottom: 2px, $left: 2px);
+			}
+			&-content {
+				position: relative;
+				z-index: 100;
+				min-height: 92px;
+				justify-content: center;
+				@include flex-center;
+				p {
+					color: #212533;
+					@include font(20px, 500, 1.4);
+				}
+			}
+		}
+	}
+}
+
+.profile-payment {
+	.cards-list {
+		.card {
+			width: 100%;
+			position: relative;
+			margin: 0 0 20px;
+			@include radius(5px);
+			@include gradient2(to right, #c1ea4f, #8bdc65 45%, #16885f 100%);
+			&:last-child {
+				margin: 0;
+			}
+			&:before {
+				content: '';
+				background: #fff;
+				@include radius(3px);
+				@include position(absolute, $top: 2px, $right: 2px, $bottom: 2px, $left: 2px);
+			}
+			&-content {
+				position: relative;
+				z-index: 100;
+				min-height: 92px;
+				justify-content: center;
+				@include flex-center;
+				h4 {
+					color: #212533;
+					@include font(20px, 500, 1.4);
+				}
+			}
+		}
+	}
+}
+
+.card-add-form {
+	.card-add-wrap {
+		.fields {
+			.form-field {
+				margin: 0 0 30px;
+			}
+		}
+		.submit {
+			margin: 30px 0 0;
+			text-align: center;
+			button {
+				padding: 14.5px 46px;
+			}
+		}
+	}
+	.card-add-overlay {
+		@include overlay(
+			$background-color: rgba(#8e9bae, .5),
+		);
+		position: fixed;
+		align-items: flex-end;
+		justify-content: stretch;
+	}
+	.picker-wrap {
+		background: #fff;
+		width: 100%;
+		padding: 20px 30px;
+	}
+	.picker-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 0 15px;
+		p {
+			color: #212533;
+			@include font(18px, 500);
+		}
+		button {
+			color: #16885f;
+			@include font(20px, 400);
+		}
+	}
+}
+
+.profile-fund-password {
+	height: 100%;
+	.fields {
+		input {
+			padding: 8.5px 16px;
+		}
+	}
+	.submit {
+		margin: 60px 0 0;
+		text-align: center;
+		button {
+			padding: 14.5px 46px;
+		}
+	}
+	.content-inner {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+
+.profile-betting-history {
+	.profile-wrap-sa-content {
+		.content-inner {
+			padding: 30px 20px;
+		}
+	}
+	.games-list {
+		.game {
+			width: 100%;
+			position: relative;
+			margin: 0 0 20px;
+			@include radius(5px);
+			@include gradient2(to right, #c1ea4f, #8bdc65 45%, #16885f 100%);
+			&:last-child {
+				margin: 0;
+			}
+			&:before {
+				content: '';
+				background: #fff;
+				@include radius(3px);
+				@include position(absolute, $top: 2px, $right: 2px, $bottom: 2px, $left: 2px);
+			}
+			&-content {
+				position: relative;
+				z-index: 100;
+				min-height: 92px;
+				@include flex-center;
+				justify-content: center;
+				h4 {
+					color: #212533;
+					@include font(20px, 500, 1.4);
+				}
+			}
+			.logo {
+				position: relative;
+				z-index: 100;
+				background: no-repeat center center/cover;
+			}
+			&.game--BTI体育 .logo {
+				background-image: url(../img/profile/games/BTI体育.png);
+				@include size(114px, 45px);
+			}
+			&.game--IM体育 .logo {
+				background-image: url(../img/profile/games/IM体育.png);
+				@include size(164px, 35px);
+			}
+			&.game--沙巴体育 .logo {
+				background-image: url(../img/profile/games/沙巴体育.png);
+				@include size(108px, 45px);
+			}
+			&.game--AG真人 .logo {
+				background-image: url(../img/profile/games/AG真人.png);
+				@include size(129px, 44px);
+			}
+			&.game--EB真人 .logo {
+				background-image: url(../img/profile/games/EBET真人.png);
+				@include size(135px, 42px);
+			}
+			&.game--IM电竞 .logo {
+				background-image: url(../img/profile/games/IM电竞.png);
+				@include size(157px, 33px);
+			}
+			&.game--开元棋牌 .logo {
+				background-image: url(../img/profile/games/开元棋牌.png);
+				@include size(139px, 39px);
+			}
+			&.game--CQ电子 .logo {
+				background-image: url(../img/profile/games/CQ电子.png);
+				@include size(105px, 51px);
+			}
+			&.game--PT电子 .logo {
+				background-image: url(../img/profile/games/PT电子.png);
+				@include size(175px, 37px);
+			}
+			&.game--MG电子 .logo {
+				background-image: url(../img/profile/games/MG电子.png);
+				@include size(137px, 45px);
+			}
+		}
+	}
+	.game-history {
+		.game-history--item {
+			background: #fff;
+			margin: 0 0 15px;
+			@include radius(5px);
+			@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+			&:last-child {
+				margin: 0;
+			}
+			&.opened {
+				.status {
+					@include radius(0 10px 0 0);
+				}
+				.game-history--item-wrap {
+					border-bottom: 1px solid #dfebef;
+				}
+			}
+		}
+		.game-history--item-wrap {
+			display: flex;
+			.content {
+				flex: 1;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 10px 10px 10px 20px;
+				p {
+					@include font(14px, 500, 20px);
+				}
+				p.timestamp {
+					color: #55687d;
+					max-width: 78px;
+				}
+				p.name {
+					color: #212533;
+				}
+				p.amount {
+					color: #55687d;
+				}
+			}
+			.status {
+				min-width: 48px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				@include radius(0 10px 10px 0);
+				&.status--green {
+					background: #16885f;
+				}
+				&.status--red {
+					background: #db0100;
+				}
+				p {
+					color: #fff;
+					@include font(14px, 500, 20px);
+				}
+			}
+		}
+		.game-history--item-subwrap {
+			padding: 2px 12px;
+			table {
+				width: 100%;
+				border-spacing: 8px;
+				border-collapse: separate;
+			}
+			tr {
+				td {
+					vertical-align: top;
+				}
+				td:first-child {
+					white-space: nowrap;
+					text-align: right;
+					color: #55687d;
+					@include font(14px, 400);
+				}
+				td:last-child {
+					width: 100%;
+					color: #212533;
+					@include font(14px, 500);
+				}
+			}
+		}
+	}
+}
+
+.profile-transfer {
+	.input--wrap.with-dot {
+		position: relative;
+		&:before {
+			content: '';
+			width: 10px;
+			height: 6px;
+			display: block;
+			pointer-events: none;
+			background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAuNjcyODYxIDBIOS4zMjcxNEM5LjkyNTg0IDAgMTAuMjI1MiAwLjc2NDg5OCA5LjgwMTM5IDEuMjEzMTZMNS40NzU5MyA1Ljc5MTg4QzUuMjEzNTggNi4wNjkzNyA0Ljc4NjQyIDYuMDY5MzcgNC41MjQwNyA1Ljc5MTg4TDAuMTk4NjA4IDEuMjEzMTZDLTAuMjI1MTkzIDAuNzY0ODk4IDAuMDc0MTU4NiAwIDAuNjcyODYxIDBaIiBmaWxsPSIjOEU5QkFFIi8+PC9zdmc+);
+			@include position(absolute, $top: calc(50% - 3px), $right: 16px);
+		}
+	}
+	.user-balance {
+		padding: 0 0 20px;
+		border-bottom: 1px solid #e1e1e1;
+		display: flex;
+		align-items: center;
+		i {
+			display: block;
+			min-width: 35px;
+			margin: 0 20px 0 0;
+			background: url(../img/profile/icon-1.png) no-repeat center center/cover;
+			@include size(35px, 35px);
+		}
+		.wrap {
+			.label {
+				white-space: nowrap;
+				@include font(15px, 400);
+			}
+			.amount {
+				color: #16885f;
+				margin: 4px 0 0;
+				@include font(15px, 500);
+			}
+		}
+	}
+	.to-wallet {
+		margin-left: auto;
+		display: flex;
+		align-items: center;
+		span {
+			margin: 0 0 0 10px;
+			color: #16885f;
+			@include font(18px, 400);
+		}
+	}
+	.with-max {
+		display: flex;
+		align-items: flex-end;
+		.amount-wrap {
+			flex: 1;
+		}
+		.amount-max-wrap {
+			margin: 0 0 0 20px;
+			button {
+				white-space: nowrap;
+				color: #16885f;
+				border: 1px solid #16885f;
+				padding: 12px;
+				@include radius(5px);
+				@include font(16px, 500);
+				&.disabled {
+					opacity: .4;
+					pointer-events: none;
+				}
+			}
+		}
+	}
+	.balances-list {
+		margin: 0 0 20px;
+		padding: 0 0 20px;
+		border-bottom: 1px solid #e1e1e1;
+		.balances-list--item {
+			text-align: center;
+			display: inline-block;
+			vertical-align: top;
+			width: calc(25% - (15px));
+			margin: 0 20px 30px 0;
+			&:nth-child(4n) {
+				margin-right: 0;
+			}
+			&:nth-last-child(-n+4) {
+				margin-bottom: 0;
+			}
+			.game-name {
+				white-space: nowrap;
+				@include font(15px, 400);
+			}
+			.game-balance {
+				color: #16885f;
+				margin: 4px 0 0;
+				@include font(15px, 500);
+			}
+		}
+	}
+	.form-field--doubler {
+		display: flex;
+		align-items: flex-end;
+		margin: 0 0 20px;
+		.form-field {
+			width: 100%;
+			margin: 0;
+		}
+		.form-field-swap {
+			width: 20px;
+			height: 16px;
+			margin: 0 20px;
+			padding: 0 0 35px;
+			svg {
+				display: block;
+				width: 20px;
+				fill: #16885f;
+				@include transform(rotate(180deg));
+			}
+		}
+	}
+	.submit {
+		text-align: center;
+		margin: 50px 0 0;
+		button {
+			padding: 10px 40px;
+		}
+	}
+	.game-sa-overlay {
+		background: rgba(#8e9bae, .6);
+		overflow-y: auto;
+		overflow-x: hidden;
+		opacity: 0;
+		pointer-events: none;
+		@include flex-center;
+		@include position(fixed, $z-index: 1000, $top: 0, $right: 0, $bottom: 0, $left: 0);
+		@include transition(opacity .2s ease);
+		&.shown {
+			opacity: 1;
+			pointer-events: auto;
+		}
+		&.picker-over {
+			z-index: 1001;
+			overflow: hidden;
+			align-items: flex-end;
+			.picker-container {
+				background: #fff;
+			}
+			.picker-head {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 20px 30px 0;
+				button {
+					color: #16885f;
+					@include font(20px, 400, 29px);
+				}
+				p {
+					color: #212533;
+					@include font(18px, 500, 26px);
+				}
+			}
+			.picker-wrap {
+				padding: 20px;
+			}
+		}
+		.overlay-sublayer {
+			margin: auto;
+			padding: 40px 0;
+			.overlay-layer {
+				width: 315px;
+				background: rgba(#fff, .95);
+				@include radius(10px);
+				@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+				.load-spin {
+					@include radius(10px);
+				}
+			}
+		}
+		.form-head {
+			padding: 20px 0 30px;
+			text-align: center;
+			position: relative;
+			h2 {
+				color: #212533;
+				@include font(20px, 500, 1.4);
+			}
+			button.close {
+				@include size(32px, 32px);
+				@include position(absolute, $top: 19px, $right: 19px);
+			}
+		}
+		.form-body {
+			padding: 0 18px 30px;
+			.form-field {
+				&:nth-child(3) {
+					margin: 0 0 50px;
+				}
+				input {
+					background: #fff;
+					padding-right: 42px;
+				}
+				.input-like {
+					background: #fff;
+					padding: 10.5px 42px 10.5px 16px;
+					width: 100%;
+					color: #8e9bae;
+					border: 1px solid #dfebef;
+					@include radius(5px);
+					@include font(18px, 500, 1.4);
+					&.has-value {
+						color: #55687d;
+					}
+				}
+			}
+			.form-submit {
+				text-align: center;
+				button {
+					color: #fff;
+					padding: 10px 40px;
+					@include font(26px, 400, 38px);
+					@include radius(40px);
+					@include gradient2(93deg, #c1ea4f 5%, #8bdc65 45%, #16885f 100%);
+				}
+			}
+		}
+		.form.response {
+			.form-head {
+				padding: 20px 30px 15px;
+				h2 {
+					text-align: left;
+				}
+			}
+			.form-body {
+				padding: 0 30px 25px;
+				p {
+					color: #55687d;
+					@include font(19px, 500, 1.4);
+				}
+				.form-submit {
+					margin: 15px 0 0;
+					text-align: right;
+					button {
+						padding: 4px 35px;
+					}
+				}
+			}
+		}
+		.picker-item {
+			color: #8e9bae !important;
+		}
+		.picker-item-selected {
+			color: #55687d !important;
+		}
+		.picker-container {
+			.picker-highlight:after,
+			.picker-highlight:before {
+				background-color: #dfebef !important;
+			}
+		}
+	}
+}
+
+.profile-faq {
+	.content-inner {
+		color: #212533;
+		padding: 30px 20px !important;
+		@include font(16px, 500, 1.5);
+		h1 {
+			@include font(22px, 500);
+		}
+		h2 {
+			@include font(16px, 500);
+		}
+		p {
+			color: #55687d;
+			@include font(16px, 400);
+		}
+	}
+}
+
+.profile-withdraw {
+	.submit {
+		text-align: center;
+		margin: 50px 0 0;
+		button {
+			padding: 10px 40px;
+		}
+	}
+	.card-select-overlay {
+		@include overlay(
+			$background-color: rgba(#8e9bae, .5),
+		);
+		position: fixed;
+		align-items: flex-end;
+		justify-content: stretch;
+	}
+	.picker-wrap {
+		background: #fff;
+		width: 100%;
+		padding: 20px 30px;
+	}
+	.picker-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 0 15px;
+		p {
+			color: #212533;
+			@include font(18px, 500);
+		}
+		button {
+			color: #16885f;
+			@include font(20px, 400);
+		}
+	}
+}
+
+.amount-variants {
+	display: flex;
+	justify-content: space-between;
+	.amount-variant {
+		min-width: 60px;
+		color: #16885f;
+		border: 1px solid #16885f;
+		padding: 6px;
+		@include radius(5px);
+		@include font(16px, 500);
+		&.disabled {
+			opacity: .4;
+			pointer-events: none;
+		}
+	}
+}
+
+.slider-picker {
+	$thumb-size: 22px;
+	width: 100%;
+	height: 22px;
+	.thumb {
+		cursor: grab;
+		width: 22px;
+		height: 22px;
+		outline: none;
+		background: #16885f;
+		@include size($thumb-size, $thumb-size);
+		@include radius(50%);
+		@include shadow(0 0 0 3px rgba(#16885f, .2));
+		@include position(absolute, $top: 0, $left: calc(-#{$thumb-size}));
+		// @include transition(left .2s ease);
+	}
+	.track {
+		background: #c1ea4f;
+		height: 3px;
+		@include radius(6px);
+		@include position(absolute, $top: calc(50% - 3px/2));
+	}
+}

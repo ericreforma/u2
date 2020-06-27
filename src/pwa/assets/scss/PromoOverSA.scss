@@ -1,0 +1,70 @@
+@import '../../../assets/scss/mixin';
+
+.promo-over-sa {
+	background: rgba(#fff, .95);
+	position: fixed !important;
+	overflow-y: auto;
+	overflow-x: hidden;
+	@include position(fixed, $z-index: 10000, $top: 0, $left: 0, $right: 0, $bottom: 0);
+	.promo-over-sa--head {
+		position: relative;
+		padding: 20px;
+		h2 {
+			text-align: center;
+			color: #212533;
+			@include font(20px, 500);
+		}
+		button {
+			@include position(absolute, $top: 20px, $right: 20px);
+		}
+	}
+	.promo-over-sa--content {
+		padding: 0 20px 20px;
+		.banner {
+			display: block;
+			padding: 3px;
+			@include radius(5px);
+			@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+			@include gradient2(to right, #c1ea4f 0%, #8bdc65 45%, #16885f 100%);
+			&:not(:last-child) {
+				margin: 0 0 15px;
+			}
+			&-inner {
+				background: #fff;
+				@include radius(2px);
+				img {
+					width: 100%;
+					display: block;
+				}
+			}
+			.banner-title {
+				padding: 10px;
+				h4 {
+					@include font(16px, 500);
+				}
+			}
+			.banner-body {
+				padding: 10px;
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+				p {
+					flex: 1;
+					@include font(15px, 400);
+				}
+				button {
+					color: #fff;
+					padding: 4px 14px;
+					@include font(14px, 500);
+					@include radius(60px);
+					@include gradient2(to right, #c1ea4f 0%, #8bdc65 45%, #16885f 100%);
+				}
+			}
+		}
+		&.single {
+			.banner:last-child {
+				margin: 0;
+			}
+		}
+	}
+}

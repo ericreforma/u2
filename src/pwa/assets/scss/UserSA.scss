@@ -1,0 +1,169 @@
+@import '../../../assets/scss/mixin';
+@import './variables.scss';
+
+@mixin textOverflow {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.user-sa {
+	min-width: 320px;
+	// background: #fff;
+	padding: 0px 30px 6px 20px;
+	display: block;
+	align-items: center;
+	// justify-content: space-between;
+	// justify-content: space-around;
+	@media screen and (min-width: 520px) {
+		padding: 6px 30px;
+		justify-content: space-between;
+	}
+	// border-top: 1px solid #dfebef;
+	// @include radius(0 0 20px 20px);
+	// @include shadow(0 4px 16px rgba(42, 51, 84, .12));
+	.load-spin {
+		@include radius(0 0 20px 20px);
+		&:before {
+			top: calc(50% - (32px/2)) !important;
+			left: calc(50% - (32px/2)) !important;
+			@include size(32px !important, 32px !important);
+		}
+	}
+	.user-sa-content {
+		min-width: 0;
+		display: block;
+		justify-content: space-between;
+		padding-bottom: 14px;
+		margin-bottom: 14px;
+		border-bottom: 1px dotted #d7d6d6;
+		// padding: 10px 24px;
+		.user-sa-info {
+			min-width: 0;
+		}
+	}
+	.user-sa--name {
+		@include textOverflow;
+		@include font(16px, 500, 23px);
+	}
+	.user-sa--balance {
+		color: #55687d;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		justify-content: space-between;
+		cursor: pointer;
+		outline: none;
+		@include textOverflow;
+		@include font(14px, 500, 20px);
+		.user-sa-username{
+			font-size: 15px;
+			font-weight: normal;
+			font-family: 'Lato', sans-serif;
+		}
+		.user-sa-balanceText{
+			color: $COLOR_orange;
+		}
+		.user-sa-balanceUnit{
+			color: $COLOR_pink;
+			font-size: 14px;
+		}
+		.user-sa-balanceAmount{
+			color: $COLOR_pink;
+			font-size: 20px;
+			font-family: 'Lato', sans-serif;
+		}
+		button {
+			margin: 0 0 0 6px;
+			font-size: 0;
+			svg {
+				@include size(20px, 20px);
+			}
+		}
+		
+	}
+	.button-logout {
+		color: #16885f;
+		@include font(18px, 400, 26px);
+	}
+	.user-sa-manage {
+		padding: 0 0 8px;
+	}
+	.user-sa-links {
+		// min-width: 320px;
+		// padding: 7px 10px 10px 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-bottom: 14px;
+		a {
+			white-space: nowrap;
+			margin: 0 40px 0 0;
+			@media screen and (max-width: 374px) {
+				margin: 0 20px 0 0;
+			}
+			position: relative;
+			@include font(18px, 400, 26px);
+			&:last-child {
+				margin: 0;
+			}
+			i {
+
+				width: 25px;
+				height: 25px;
+				display: inline-block;
+				margin: 0 auto;
+				margin-right: 3px;
+				background: no-repeat center center/cover;
+			}
+			span.menuname{
+				font-size: 15px;
+				color: $COLOR_dark;
+			}
+			span.count {
+				color: #fff;
+				background: rgb(241, 77, 77);
+				padding: 0 5px;
+				border: 2px solid #fff;
+				text-align: center;
+				
+				@include radius(40px);
+				@include font(12px, 600, 15px);
+				@include position(absolute, $top: -5px, $right: -5px);
+			}
+			&.link-debit {
+				i {
+					width: 28px;
+					height: 25px;
+					margin-bottom: 4px;
+					background-image: url(../img/_icon/withdrawal.svg);
+				}
+			}
+			&.link-deposit {
+				i {
+					width: 23px;
+					height: 22px;
+					background-image: url(../img/_icon/deposit.svg);
+				}
+			}
+			&.link-transfer {
+				i {
+					width: 27px;
+					height: 27px;
+					background-image: url(../img/_icon/transfer.svg);
+				}
+			}
+			&.link-inbox {
+				i {
+					width: 28px;
+					height: 21px;
+					background-image: url(../img/_icon/messages.svg);
+				}
+			}
+			*{
+				position: relative;
+				vertical-align: middle;
+			}
+		}
+	}
+}

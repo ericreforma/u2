@@ -1,0 +1,15 @@
+
+$COLOR_dark: #39404d;
+$COLOR_light: #5c636e;
+$COLOR_blue: #46aef7;
+
+$COLOR_orange: #fe934c;
+$COLOR_pink: #fc686f;
+
+$head: 330;
+$head-tablet: 449;
+
+:export {
+	head: $head;
+	head-tablet: $head-tablet;
+}

@@ -1,0 +1,37 @@
+@import '../../../assets/scss/mixin';
+
+.ui-alert-sa {
+	@include overlay(
+		$background-color: rgba(#8e9bae, .5),
+	);
+	position: fixed;
+	.ui-alert-sa--layer {
+		@include radius(5px);
+	}
+	.ui-alert-sa--head {
+		position: relative;
+		padding: 20px;
+		min-width: 315px;
+		button {
+			@include position(absolute, $top: 20px, $right: 20px);
+		}
+		h1 {
+			color: #212533;
+			@include font(18px, 500, 26px);
+		}
+	}
+	.ui-alert-sa--body {
+		padding: 0 20px 20px;
+		p {
+			color: #55687d;
+			@include font(19px, 500, 1.4);
+		}
+		.button-wrap {
+			text-align: right;
+			margin: 20px 0 0;
+			button {
+				padding: 10px 40px;
+			}
+		}
+	}
+}

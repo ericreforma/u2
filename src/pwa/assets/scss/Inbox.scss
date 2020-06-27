@@ -1,0 +1,80 @@
+@import '../../../assets/scss/mixin';
+
+.inbox-page {
+	background: #f0f4f5;
+}
+
+.messages-wrap {
+	.profile-wrap-sa-content {
+		padding: 0;
+		.content-inner {
+			padding: 0;
+		}
+	}
+	.load-spin {
+		position: fixed !important;
+		z-index: 1000 !important;
+	}
+	&.desktop {
+		min-height: calc(100vh - (50px + 70px + 80px));
+		padding: 50px 0 70px;
+		.messages-list {
+			position: relative;
+			width: 1024px;
+			margin: 0 auto;
+			background: #fff;
+			@include radius(12px);
+			@include shadow(0 4px 16px rgba(42, 51, 84, .12));
+			.load-spin {
+				position: absolute !important;
+				@include radius(12px);
+			}
+		}
+	}
+}
+
+.messages-list {
+	.messages-list--item {
+		cursor: pointer;
+		&.opened {
+			margin: 0 0 44px;
+			.messages-list--item-wrap {
+				border-bottom-color: #ccc;
+			}
+			.messages-list--item-content {
+				display: block;
+			}
+		}
+		.messages-list--item-wrap {
+			padding: 10px 20px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid #ececec;
+			@include transition(border-color .2s ease);
+		}
+	}
+	.messages-list--item-content {
+		padding: 10px 20px 0;
+		display: none;
+	}
+	.status {
+		background: #c1ea4f;
+		color: #fff;
+		padding: 8px 12px;
+		@include font(15px, 600);
+		@include radius(20px);
+		&.unread {
+			background: #16885f;
+		}
+	}
+	.subject {
+		color: #212533;
+		@include font(16px, 400);
+	}
+	.timestamp {
+		color: #55687d;
+		margin: 6px 0 0;
+		@include font(15px, 500);
+	}
+}

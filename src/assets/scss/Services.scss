@@ -1,0 +1,151 @@
+@import '_mixin';
+
+$base-url: '../img/services';
+$postfix: '@2';
+$side-padding: 20px;
+
+.services {
+	padding: 0 0 150px;
+	&-inner {
+		width: 1280px + ($side-padding * 2);
+		margin: 0 auto;
+		padding: 0 $side-padding;
+	}
+	&-items {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 0 25px;
+	}
+	&-item {
+		position: relative;
+		padding: 120px 0 0;
+		&:hover {
+			.circle {
+				@include transform(scale(.98));
+			}
+			.main-layer {
+				@include transform(scale(1.05));
+			}
+			.over-layer {
+				@include transform(scale(1.1));
+			}
+		}
+		.circle,
+		.main-layer,
+		.over-layer {
+			transform-origin: center bottom;
+			@include transition(transform .5s ease-in-out);
+		}
+		.circle {
+			width: 247px;
+			height: 247px;
+		}
+		.circle,
+		.main-layer,
+		.over-layer {
+			background: no-repeat center center/cover;
+		}
+		.logo-wrap {
+			width: 226px;
+			height: 56px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #fff;
+			@include radius(30px);
+			@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+			.logo {
+				background: no-repeat center center/cover;
+			}
+		}
+	}
+	&-item.item-n1 {
+		.circle {
+			background-image: url(#{$base-url}/item-n1/circle#{$postfix}.png);
+		}
+		.main-layer {
+			width: 247px;
+			height: 326px;
+			background-image: url(#{$base-url}/item-n1/main-layer#{$postfix}.png);
+			@include position(absolute, $z-index: 20, $left: -24px, $bottom: 17px);
+		}
+		.over-layer {
+			width: 239px;
+			height: 121px;
+			background-image: url(#{$base-url}/item-n1/over-layer#{$postfix}.png);
+			@include position(absolute, $z-index: 30, $left: 2px, $bottom: 6px);
+		}
+		.logo-wrap {
+			@include position(absolute, $z-index: 40, $left: 15px, $bottom: -15px);
+			.logo {
+				width: 192px;
+				height: 40px;
+				background-image: url(#{$base-url}/item-n1/logo#{$postfix}.png);
+			}
+		}
+	}
+	&-item.item-n2 {
+		.circle {
+			background-image: url(#{$base-url}/item-n2/circle#{$postfix}.png);
+		}
+		.main-layer {
+			width: 182px;
+			height: 340px;
+			background-image: url(#{$base-url}/item-n2/main-layer#{$postfix}.png);
+			@include position(absolute, $z-index: 20, $left: 23px, $bottom: -9px);
+		}
+		.over-layer {
+			width: 226px;
+			height: 155px;
+			background-image: url(#{$base-url}/item-n2/over-layer#{$postfix}.png);
+			@include position(absolute, $z-index: 30, $left: 15px, $bottom: 2px);
+		}
+		.logo-wrap {
+			@include position(absolute, $z-index: 40, $left: 10px, $bottom: -15px);
+			.logo {
+				width: 131px;
+				height: 45px;
+				background-image: url(#{$base-url}/item-n2/logo#{$postfix}.png);
+			}
+		}
+	}
+	&-item.item-n3 {
+		.circle {
+			background-image: url(#{$base-url}/item-n3/circle#{$postfix}.png);
+		}
+		.main-layer {
+			width: 381px;
+			height: 354px;
+			background-image: url(#{$base-url}/item-n3/main-layer#{$postfix}.png);
+			@include position(absolute, $z-index: 20, $left: -103px, $bottom: -6px);
+		}
+		.logo-wrap {
+			@include position(absolute, $z-index: 40, $left: 8px, $bottom: -14px);
+			.logo {
+				width: 179px;
+				height: 39px;
+				background-image: url(#{$base-url}/item-n3/logo#{$postfix}.png);
+			}
+		}
+	}
+	&-item.item-n4 {
+		.circle {
+			background-image: url(#{$base-url}/item-n4/circle#{$postfix}.png);
+		}
+		.main-layer {
+			width: 277px;
+			height: 310px;
+			background-image: url(#{$base-url}/item-n4/main-layer#{$postfix}.png);
+			@include position(absolute, $z-index: 20, $left: 23px, $bottom: 30px);
+		}
+		.logo-wrap {
+			width: 148px;
+			@include position(absolute, $z-index: 40, $left: 46px, $bottom: -15px);
+			.logo {
+				width: 95px;
+				height: 46px;
+				background-image: url(#{$base-url}/item-n4/logo#{$postfix}.png);
+			}
+		}
+	}
+}

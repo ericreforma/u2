@@ -1,0 +1,58 @@
+@mixin radius($radius) { -webkit-border-radius: $radius; -moz-border-radius: $radius; border-radius: $radius; }
+@mixin shadow($property...) { -webkit-box-shadow: $property; -moz-box-shadow: $property; box-shadow: $property; }
+@mixin transform($property...) { -webkit-transform: $property; -moz-transform: $property; -ms-transform: $property; -o-transform: $property; transform: $property; }
+@mixin transition($property...) { -webkit-transition: $property; -moz-transition: $property; -ms-transition: $property; -o-transition: $property; transition: $property; }
+@mixin select($property) { -webkit-user-select: $property; -moz-user-select: $property; -ms-user-select: $property; -o-user-select: $property; user-select: $property; }
+@mixin gradient($direction, $from, $to) { background-image: -webkit-linear-gradient($direction, $from, $to); background-image: -moz-linear-gradient($direction, $from, $to); background-image: -ms-linear-gradient($direction, $from, $to); background-image: -o-linear-gradient($direction, $from, $to); background-image: linear-gradient($direction, $from, $to); }
+@mixin gradient2($property...) { background-image: -webkit-linear-gradient($property); background-image: -moz-linear-gradient($property); background-image: -ms-linear-gradient($property); background-image: -o-linear-gradient($property); background-image: linear-gradient($property); }
+@mixin font($size:false, $weight:false, $lh:false) {
+	@if $size { font-size: $size; }
+	@if $weight { font-weight: $weight; }
+	@if $lh { line-height: $lh; }
+}
+@mixin position($position, $z-index: null, $top: null, $right: null, $bottom: null, $left: null) {
+	position: $position;
+	z-index: $z-index;
+	top: $top;
+	left: $left;
+	right: $right;
+	bottom: $bottom;
+}
+@mixin placeholder {
+	&.placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; }
+}
+
+@mixin size($width, $height) {
+	@if $width { width: $width; }
+	@if $height { height: $height; }
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-items: center;
+}
+
+@mixin overlay($background-color: rgba(#000, .5), $sublayer-padding: 40px 0) {
+	background: $background-color;
+	opacity: 0;
+	pointer-events: none;
+	@include flex-center;
+	@include position(absolute, $z-index: 1000, $top: 0, $left: 0, $right: 0, $bottom: 0);
+	@include transition(opacity .2s ease);
+	&.shown {
+		opacity: 1;
+		pointer-events: auto;
+	}
+	&--sublayer {
+		margin: auto;
+		padding: $sublayer-padding;
+	}
+	&--layer {
+		background: #fff;
+	}
+}

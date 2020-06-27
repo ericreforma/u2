@@ -1,0 +1,80 @@
+@import '_mixin';
+
+.tabs {
+	font-size: 0;
+	background: #fff;
+	width: 1040px;
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: stretch;
+	@include radius(60px);
+	@include shadow(0 0 44px rgba(24, 24, 25, 0.07), inset 0 -2px 4px rgba(79, 95, 77, 0.9), inset 0 2px 4px rgba(0, 0, 0, 0.25));
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: transparent;
+		border: 3px solid #fff;
+		@include radius(60px);
+	}
+	.tab {
+		width: 100%;
+		white-space: nowrap;
+		color: #000;
+		cursor: pointer;
+		text-align: center;
+		padding: 20px calc(70px / 2);
+		@include font(24px, 400, 35px);
+		@include select(none);
+		@include position(relative, $z-index: 100);
+		@include transition(color .2s ease-in-out);
+		&.active {
+			color: #fff;
+			font-weight: 500;
+			padding: 20px calc(160px / 2);
+		}
+	}
+	.tab--switch {
+		@include select(none);
+		@include radius(60px);
+		@include shadow(0 6px 20px rgba(159, 213, 63, .5));
+		@include position(absolute, $z-index: 50, $top: 0, $bottom: 0, $left: 0);
+		@include gradient2(95deg, #c1ea4f 5%, #8bdc65 45%, #16885f 100%);
+		@include transition(width .2s ease-in-out, transform .2s ease-in-out);
+	}
+	&.tab-n0 {
+		.tab--switch {
+			width: 271px;
+			@include transform(translateX(0));
+		}
+	}
+	&.tab-n1 {
+		.tab--switch {
+			width: 271px;
+			@include transform(translateX(192px));
+		}
+	}
+	&.tab-n2 {
+		.tab--switch {
+			width: 271px;
+			@include transform(translateX(192px + 192px));
+		}
+	}
+	&.tab-n3 {
+		.tab--switch {
+			width: 271px;
+			@include transform(translateX(192px + 192px + 192px));
+		}
+	}
+	&.tab-n4 {
+		.tab--switch {
+			width: 271px;
+			@include transform(translateX(192px + 192px + 192px + 192px));
+		}
+	}
+}

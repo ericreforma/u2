@@ -1,0 +1,118 @@
+@import '../../../assets/scss/mixin';
+@import './variables.scss';
+
+.menu-sa {
+	min-width: 375px;
+	height: 65px;
+	background-color: #fff;
+	justify-content: center;
+	@include radius(45px 45px 0 0);
+	overflow: hidden;
+	@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+	@include position(fixed, $z-index: 999, $top: auto, $left: 0, $right: 0, $bottom: 0);
+	svg {
+		fill: #8e9bae;
+	}
+	&-wrap {
+		width: 350px;
+		font-size: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		margin: auto;
+		@media screen and (max-width: 520px) {
+			justify-content: space-between;
+		}
+		padding: 0 5px;
+		position: relative;
+		background: #fff;
+		@include select(none);
+		margin-top: 5px;
+		
+		.menu--switch {
+			pointer-events: none;
+			width: 56px;
+			height: 56px;
+			background: #16885f;
+			@include radius(50%);
+			@include position(absolute, $top: -50%, $left: 5px);
+			@include transition(transform .2s ease);
+		}
+	}
+	.menu--item {
+		position: relative;
+		z-index: 12;
+		padding: 6.5px;
+		min-width: 70px;
+		.name {
+			color: $COLOR_dark;
+			font-size: 13px;
+			line-height: 12px;
+			text-align: center;
+			margin: 7px 0 0;
+			@include transition(color .2s ease);
+		}
+		.icon {
+			margin: 0 auto;
+			// width: 23px;
+			// height: 23px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			// -webkit-backface-visibility: hidden;
+			// -webkit-transform: perspective(1056px);
+			// @include transition(transform .2s ease);
+			// svg {
+			// 	fill: #8e9bae;
+			// 	position: relative;
+			// 	z-index: 200;
+			// 	// @include transition(fill .2s ease);
+			// }
+			img{
+				height: auto;
+			}
+			
+		}
+		.icon-home, .icon-profile{
+			img{
+				width: 24px;
+			}
+		}
+		.icon-promotions, .icon-faq{
+			img{
+				width: 22px;
+			}
+		}
+		&.active {
+			svg path{
+				fill: $COLOR_blue;
+			}
+			.name {
+				color: $COLOR_blue;
+			}
+			
+		}
+	}
+	.menu-sa-live-chat {
+		opacity: 0;
+		pointer-events: none;
+		background: #fff;
+		@include radius(9px);
+		@include position(fixed, $z-index: 1002, $top: 60px, $bottom: 115px, $left: 20px, $right: 20px);
+		@include transition(opacity .2s ease);
+		@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+		&.shown {
+			opacity: 1;
+			pointer-events: auto;
+		}
+		button {
+			@include position(absolute, $z-index: 1002, $top: -40px, $right: 0);
+		}
+		iframe {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+	}
+}

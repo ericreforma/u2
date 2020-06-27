@@ -1,0 +1,36 @@
+@import '_mixin';
+
+.block-head {
+	text-align: center;
+	position: relative;
+	h2 {
+		position: relative;
+		z-index: 100;
+		display: inline-block;
+		vertical-align: top;
+		p, .text-shadow {
+			font-family: 'Noto Sans SC';
+			white-space: nowrap;
+			letter-spacing: normal;
+			@include font(70px, 700, 1.2);
+		}
+		p {
+			color: #c1ea4f;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			@include gradient2(95deg, #c1ea4f 0%, #8bdc65 50%, #16885f 100%);
+			@include position(relative, $z-index: 20);
+		}
+		.text-shadow {
+			color: transparent;
+			text-shadow: 1px 1px 1px #000;
+			@include select(none);
+			@include position(absolute, $z-index: 10, $top: 0, $left: 0, $right: 0, $bottom: 0);
+		}
+	}
+	p {
+		color: #c9dadf;
+		text-transform: uppercase;
+		font: 700 28px/1.2 Montserrat;
+	}
+}

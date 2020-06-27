@@ -1,0 +1,65 @@
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+h1, h2, h4, h6 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+pre {
+	margin: 0;
+}
+
+svg {
+	fill: #000;
+}
+
+button {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+}
+
+button:active {
+	color: inherit;
+}
+
+input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	background: transparent;
+}
+
+iframe {
+	border: 0;
+	width: 100%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none; 
+  margin: 0; 
+}

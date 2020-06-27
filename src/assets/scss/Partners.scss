@@ -1,0 +1,71 @@
+@import '_mixin';
+
+$wrap-width: 1400px;
+$side-padding: 40px;
+
+.partners {
+	background: #fff;
+	overflow: hidden;
+	@include shadow(0 -4px 16px rgba(42, 51, 84, .12));
+	&-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: $wrap-width + ($side-padding * 2);
+		margin: 0 auto;
+		padding: 32px $side-padding;
+	}
+	.partner--item {
+		background: no-repeat center center/cover;
+		&.n1 {
+			width: 99px;
+			height: 22px;
+			background-image: url(../img/partners/partner-n1.png);
+		}
+		&.n2 {
+			width: 104px;
+			height: 22px;
+			background-image: url(../img/partners/partner-n2.png);
+		}
+		&.n3 {
+			width: 80px;
+			height: 31px;
+			background-image: url(../img/partners/partner-n3.png);
+		}
+		&.n4 {
+			width: 141px;
+			height: 30px;
+			background-image: url(../img/partners/partner-n4.svg);
+		}
+		&.n5 {
+			width: 26.3px;
+			height: 30px;
+			background-image: url(../img/partners/partner-n5.svg);
+		}
+		&.n6 {
+			width: 90px;
+			height: 30px;
+			background-image: url(../img/partners/partner-n6.svg);
+		}
+		&.n7 {
+			width: 85.31px;
+			height: 30px;
+			background-image: url(../img/partners/partner-n7.svg);
+		}
+		&.n8 {
+			width: 86.25px;
+			height: 30px;
+			background-image: url(../img/partners/partner-n8.svg);
+		}
+		&.n9 {
+			width: 83px;
+			height: 40px;
+			background-image: url(../img/partners/partner-n9.png);
+		}
+		&.n10 {
+			width: 129px;
+			height: 35px;
+			background-image: url(../img/partners/partner-n10.png);
+		}
+	}
+}

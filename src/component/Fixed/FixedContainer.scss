@@ -1,0 +1,9 @@
+@import '../../assets/scss/mixin';
+
+.fixed-container {
+	@include position(absolute, $top: 0, $right: 0, $left: 0, $bottom: 0);
+	.fixed-item {
+		position: absolute;
+		top: 0;
+	}
+}

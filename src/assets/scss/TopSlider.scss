@@ -1,0 +1,65 @@
+@import '_mixin';
+
+.top-slider {
+	position: relative;
+	overflow: hidden;
+	img {
+		width: 100%;
+		max-height: 600px;
+		object-fit: cover;
+	}
+	.slick-dots {
+		display: flex !important;
+		justify-content: center;
+		@include transform(translateX(-50%));
+		@include position(absolute, $bottom: 25px, $left: 50%);
+		li {
+			cursor: pointer;
+			display: inline-flex !important;
+			background: #212533;
+			margin: 0 7px;
+			width: 15px;
+			height: 15px;
+			@include radius(40px);
+			@include transition(width .2s ease);
+			&.slick-active {
+				background: #16885f;
+				width: 150px;
+				@include radius(10px);
+			}
+			button {
+				color: transparent;
+				padding: 0;
+				font-size: 0;
+				@include size(auto, auto);
+				@include position(absolute, $top: 0, $right: 0, $bottom: 0, $left: 0);
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+	.arrow {
+		cursor: pointer;
+		width: 83px;
+		height: 87px;
+		display: flex !important;
+		align-items: center;
+		background: transparentize(#212533, .7) !important;
+		@include position(absolute, $z-index: 100, $top: calc(50% - 87px/2));
+		@include radius(5px);
+		svg {
+			fill: #fff;
+		}
+	}
+	.arrow-left {
+		left: -38px;
+		padding: 0 17px 0 0;
+		justify-content: flex-end;
+	}
+	.arrow-right {
+		right: -38px;
+		padding: 0 0 0 17px;
+		justify-content: flex-start;
+	}
+}

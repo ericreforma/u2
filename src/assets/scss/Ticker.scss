@@ -1,0 +1,24 @@
+@import '_mixin';
+
+@font-face {
+	font-family: 'Noto Sans SC2';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Noto Sans SC Regular'), local('NotoSansSC-Regular'),
+		url(../font/noto-sans-sc-v11-latin-regular.woff2) format('woff2'),
+		url(../font/noto-sans-sc-v11-latin-regular.woff) format('woff');
+}
+
+.ticker {
+	padding: 20px 0;
+	white-space: nowrap;
+	cursor: pointer;
+	p {
+		color: #55687d;
+		font: 400 16px 'Noto Sans SC2';
+		margin: 0 10px 0 0;
+		&:last-child {
+			margin: 0;
+		}
+	}
+}

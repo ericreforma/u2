@@ -1,0 +1,1091 @@
+@import '_mixin';
+
+$side-padding: 30px;
+
+.dashboard {
+	padding: 50px 0 70px 0;
+	position: relative;
+	overflow: hidden;
+	.dashboard-wrap {
+		width: 1024px + ($side-padding * 2);
+		margin: 0 auto;
+		padding: 0 $side-padding;
+		&.dashboard-sub-nav {
+			margin-bottom: 30px;
+		}
+	}
+	.dashboard-inner {
+		background: #fff;
+		@include radius(12px);
+		@include shadow(0 4px 16px rgba(42, 51, 84, .12));
+	}
+	.dashboard-tabs {
+		padding: 0 65px;
+		border-bottom: 3px solid #dfebef;
+		.ui-tabs {
+			margin: 0;
+			justify-content: flex-start;
+			@include radius(0);
+			@include shadow(none);
+			&:after {
+				display: none;
+			}
+			.ui-tabs--tab {
+				width: auto;
+				color: #55687d;
+				padding: 18px 40px;
+				@include font(22px, 400, 32px);
+				&.active {
+					color: #16885f;
+				}
+			}
+			.ui-tabs--selector {
+				height: 5px;
+				top: 0;
+				bottom: auto;
+			}
+		}
+	}
+	.decor-n0,
+	.decor-n1 {
+		pointer-events: none;
+		background: no-repeat center center/cover;
+		@include position(absolute, $z-index: -1);
+	}
+	.decor-n0 {
+		background-image: url(../img/dashboard/transactions-bg0.png);
+		top: 20px;
+		right: calc(50% + 405px);
+		@include size(461px, 1239px);
+	}
+	.decor-n1 {
+		background-image: url(../img/dashboard/transactions-bg1.png);
+		top: 30px;
+		left: calc(50% + 480px);
+		@include size(375px, 1146px);
+	}
+}
+
+@media screen and (max-width: 1084px) {
+
+	.dashboard {
+		.dashboard-wrap {
+			width: 100%;
+		}
+	}
+
+}
+
+.deposit {
+	overflow: hidden;
+	@include radius(0 0 12px 12px);
+	iframe {
+		display: block;
+	}
+}
+
+.transactions {
+	.load-spin {
+		@include radius(0 0 12px 12px);
+	}
+	.transactions-wrap {
+		padding: 20px 100px 250px 100px;
+		@media screen and (max-width: 1080px) {
+			padding: 30px;
+		}
+	}
+	.transactions-head {
+		padding: 3px 0;
+		margin: 0 0 30px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.type-select {
+			display: flex;
+			align-items: center;
+			button.type-select--item {
+				@include font(16px, 400, 23px);
+				@include transition(color .2s ease);
+				&.active {
+					color: #16885f;
+					font-weight: 500;
+				}
+				&:not(:last-child) {
+					margin: 0 50px 0 0;
+				}
+			}
+		}
+		.transactions-range {
+			width: 335px;
+			.ui-tabs {
+				margin: 0;
+				.ui-tabs--tab {
+					font-size: 16px;
+					padding: 5.5px 9px;
+				}
+				.ui-tabs--selector {
+					@include gradient2(92deg, #dee12a 5%, #168858 100%);
+				}
+			}
+		}
+		@media screen and (max-width: 960px) {
+			flex-direction: column;
+			.transactions-range {
+				margin: 30px 0 0;
+			}
+		}
+		@media screen and (max-width: 680px) {
+			.transactions-type {
+				width: 100%;
+				.type-select {
+					width: 100%;
+					justify-content: space-between;
+					.type-select--item {
+						margin: 0 !important;
+					}
+				}
+			}
+			.transactions-range {
+				width: 100%;
+			}
+		}
+	}
+	.transaction {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+		&:not(:last-child) {
+			margin: 0 0 21px;
+		}
+		.content {
+			padding: 16px 40px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border: 1px solid #dfebef;
+			border-right: 0;
+			@include radius(10px 0 0 10px);
+			p {
+				@include font(18px, 500, 26px);
+			}
+			p.date {
+				color: #55687d;
+			}
+			p.dist {
+				color: #212533;
+			}
+			p.amount {
+				color: #55687d;
+			}
+		}
+		.status {
+			min-width: 108px;
+			white-space: nowrap;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #8e9bae;
+			@include radius(0 10px 10px 0);
+			span {
+				color: #fff;
+				@include font(18px, 500, 26px);
+			}
+			&.stat-待定 {
+				background: #8e9bae;
+			}
+			&.stat-成功 {
+				background: #16885f;
+			}
+			&.stat-拒绝 {
+				background: #db0100;
+			}
+		}
+	}
+	.transactions-overlay {
+		background: transparentize(#8e9bae, .5);
+		opacity: 0;
+		pointer-events: none;
+		@include flex-center;
+		@include position(fixed, $z-index: 100, $top: 0, $left: 0, $right: 0, $bottom: 0);
+		@include transition(opacity .2s ease);
+		&.shown {
+			opacity: 1;
+			pointer-events: auto;
+		}
+		.transactions-overlay--inner {
+			margin: auto;
+			padding: 40px 0;
+		}
+		.transactions-overlay--wrap {
+			background: #fff;
+			position: relative;
+			z-index: 1005;
+			@include radius(10px);
+			@include shadow(0 4px 16px rgba(42, 51, 84, .12));
+		}
+	}
+}
+
+.react-datepicker-wrapper {
+	margin-left: auto;
+}
+
+.custom-range-form {
+	min-width: 520px;
+	padding: 40px 60px 50px;
+	h2 {
+		color: #212533;
+		text-align: center;
+		@include font(22px, 400, 32px);
+	}
+	.form-wrap {
+		margin: 40px 0;
+		.field {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			&:not(:last-child) {
+				margin: 0 0 20px;
+			}
+			label {
+				margin: 0 30px 0 0;
+				color: #212533;
+				@include font(18px, 500, 26px);
+			}
+			input {
+				width: 295px;
+				padding: 13.5px 16px;
+				border: 1px solid #dfebef;
+				color: #55687d;
+				@include radius(5px);
+				@include font(18px, 500, 26px);
+			}
+		}
+	}
+	.form-buttons {
+		display: flex;
+		justify-content: center;
+		button {
+			padding: 10px 40px;
+			@include radius(40px);
+			@include font(20px, 400, 29px);
+			&:not(:last-child) {
+				margin: 0 35px 0 0;
+			}
+			&.cancel {
+				color: #55687d;
+				background: #c9dadf;
+			}
+			&.update {
+				color: #fff;
+				@include gradient2(94deg, #c1ea4f 5%, #8bdc65 45%, #16885f 100%);
+			}
+		}
+	}
+	.react-datepicker__day--selected {
+		background: #16885f;
+	}
+}
+
+.sub-nav {
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	@include radius(10px);
+	@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+	.ui-tabs {
+		margin: 0;
+		background: transparent;
+		@include radius(0);
+		@include shadow(none);
+		&:after {
+			display: none;
+		}
+		.ui-tabs--tab {
+			color: #55687d;
+			padding: 18px 9px;
+			@include font(22px, 400, 32px);
+			&.active {
+				color: #16885f;
+			}
+		}
+		.ui-tabs--selector {
+			height: 5px;
+			top: auto;
+			bottom: 0;
+		}
+	}
+	.sub-nav--user-wrap {
+		padding: 15px 30px 18px;
+		.user-name {
+			margin: 0 0 5px;
+			@include font(18px, 400, 26px);
+		}
+		.user-balance {
+			color: #55687d;
+			@include font(18px, 400, 26px);
+			span {
+				color: #16885f;
+			}
+		}
+	}
+	.sub-nav--tabs {
+		.ui-tabs {
+			button {
+				padding: 29px 33px;
+			}
+		}
+	}
+}
+
+.transfer {
+	.load-spin {
+		@include radius(0 0 12px 12px);
+	}
+	.transfer-content {
+		padding: 30px 50px 40px;
+	}
+	.transfer-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.transfer-title {
+		h2 {
+			color: #212533;
+			@include font(27px, 500);
+		}
+		p {
+			color: #55687d;
+			@include font(20px, 400);
+		}
+	}
+	.transfer-refresh {
+		button {
+			display: flex;
+			align-items: center;
+			span {
+				color: #16885f;
+				margin: 0 0 0 9px;
+				@include font(21px, 400);
+			}
+		}
+	}
+	.transfer-form {
+		margin: 30px 0 0;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		.transfer-form--item {
+			margin: 0 20px 0 0;
+			&:last-child {
+				margin: 0;
+			}
+			&.dists {
+				display: flex;
+				align-items: flex-end;
+				justify-content: space-between;
+				margin: 0 30px 0 0;
+			}
+			.ui-select {
+				min-width: 250px;
+			}
+			& > button {
+				padding: 10px 40px;
+			}
+		}
+		.transform-switch {
+			font-size: 0;
+			margin: 0 10px 15px;
+			button {
+				font-size: 0;
+				padding: 4px;
+				svg {
+					pointer-events: none;
+				}
+			}
+		}
+	}
+	.transfer-body {
+		.games-list--category {
+			margin: 20px 0 0;
+			&:nth-child(1) {
+				margin: 36px 0 0;
+			}
+			h3 {
+				color: #212533;
+				margin: 0 0 10px;
+				padding: 0 0 0 10px;
+				@include font(22px, 500, 1.7);
+			}
+		}
+		.games-list--item {
+			min-width: 298px;
+			min-height: 110px;
+			padding: 15px 0;
+			border: 1px solid #dfebef;
+			margin: 0 15px 0 0;
+			display: inline-block;
+			vertical-align: top;
+			text-align: center;
+			@include radius(10px);
+			&:last-child {
+				margin: 0;
+			}
+			.balance {
+				color: #55687d;
+				margin: 5px 0 0;
+				@include font(20px, 400, 29px);
+				span {
+					color: #16885f;
+				}
+			}
+			.logo {
+				margin: 0 auto;
+				background: no-repeat center center/cover;
+			}
+			&.BTI体育 .logo {
+				@include size(110px, 44px);
+				background-image: url(../img/transfer/BTI体育.png);
+			}
+			&.IM体育 .logo {
+				@include size(171px, 36px);
+				background-image: url(../img/transfer/IM体育.png);
+			}
+			&.沙巴体育 .logo {
+				@include size(100px, 41px);
+				background-image: url(../img/transfer/沙巴体育.png);
+			}
+			&.AG真人 .logo {
+				@include size(116px, 40px);
+				background-image: url(../img/transfer/AG真人.png);
+			}
+			&.EB真人 .logo {
+				@include size(137px, 42px);
+				background-image: url(../img/transfer/EBET真人.png);
+			}
+			&.IM电竞 .logo {
+				@include size(173px, 37px);
+				background-image: url(../img/transfer/IM电竞.png);
+			}
+			&.CQ电子 .logo {
+				@include size(101px, 49px);
+				background-image: url(../img/transfer/CQ电子.png);
+			}
+			&.PT电子 .logo {
+				@include size(189px, 42px);
+				background-image: url(../img/transfer/PT电子.png);
+			}
+			&.MG电子 .logo {
+				@include size(143px, 47px);
+				background-image: url(../img/transfer/MG电子.png);
+			}
+			&.开元棋牌 .logo {
+				@include size(152px, 42px);
+				background-image: url(../img/transfer/开元棋牌.png);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1070px) {
+
+	.transfer {
+		.transfer-head {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
+		.transfer-refresh {
+			margin: 20px 0 0;
+		}
+		.transfer-form {
+			flex-wrap: wrap;
+			.transfer-form--item {
+				flex: 1 0 50%;
+				margin: 0;
+				&.dists {
+					flex: 1 0 100%;
+					margin: 0 0 20px;
+				}
+				&:nth-last-child(2) {
+					flex: 1 0 75%;
+				}
+				&:last-child {
+					flex: 1 0 10%;
+					margin-left: 20px;
+				}
+			}
+		}
+	}
+
+}
+
+@media screen and (max-width: 1084px) {
+
+	.transfer {
+		.transfer-body {
+			.games-list--category {
+				h3 {
+					margin: 0;
+				}
+				.games-list--items {
+					display: flex;
+					flex-wrap: wrap;
+				}
+			}
+			.games-list--item {
+				margin: 15px 15px 0 0 !important;
+			}
+		}
+	}
+
+	.sub-nav {
+		.sub-nav--user-wrap {
+			padding: 0 20px;
+			p {
+				white-space: nowrap;
+			}
+		}
+		.sub-nav--tabs {
+			flex: 1;
+			justify-content: space-between;
+			min-width: 0;
+			overflow-x: auto;
+			overflow-y: hidden;
+			.ui-tabs {
+				button {
+					padding: 29px 10px;
+				}
+			}
+		}
+	}
+
+}
+
+@media screen and (max-width: 719px) {
+
+	.transfer {
+		.transfer-form {
+			.transform-switch {
+				margin: 20px auto;
+			}
+			.transfer-form--item {
+				&.dists {
+					display: flex;
+					align-items: stretch;
+					flex-direction: column;
+				}
+				&:last-child {
+					margin: 30px 20px 0;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+}
+
+.transfer-overlay {
+	@include overlay(
+		$background-color: rgba(#8e9bae, .5),
+	);
+	&--layer {
+		width: 315px;
+		padding: 20px 30px 30px;
+		position: relative;
+		@include radius(10px);
+		@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+		button.close {
+			font-size: 0;
+			padding: 3px;
+			@include position(absolute, $top: 16px, $right: 16px);
+			svg {
+				pointer-events: none;
+			}
+		}
+		button.button-stylized {
+			padding: 8.5px 39px;
+		}
+		h2 {
+			color: #212533;
+			@include font(19px, 500, 1.4);
+		}
+		p {
+			color: #55687d;
+			margin: 14px 0 0;
+			@include font(19px, 500, 1.4);
+		}
+		.layer-button {
+			text-align: right;
+			margin: 10px 0 0;
+		}
+	}
+}
+
+.dashboard-personal {
+	padding: 30px 50px 85px;
+	.load-spin {
+		@include radius(0 0 12px 12px);
+	}
+	.message {
+		@include font(18px, 500);
+		margin: 0 0 20px;
+		&.invalid {
+			color: #e92a16;
+		}
+		&.valid {
+			color: #00a500;
+		}
+	}
+	h2 {
+		margin: 0 0 60px;
+		@include font(26px, 500);
+	}
+	.fields {
+		display: flex;
+		flex-wrap: wrap;
+		.form-field {
+			min-width: 300px;
+			max-width: 300px;
+			margin: 0 46px 30px 0;
+		}
+	}
+	.submit {
+		margin: 30px 0 0;
+		button {
+			padding: 10px 40px;
+		}
+	}
+	@media screen and (max-width: 860px) {
+		h2 {
+			margin: 0 0 30px;
+		}
+		.fields {
+			display: flex;
+			flex-wrap: wrap;
+			.form-field {
+				width: calc(50% - 23px);
+				min-width: auto;
+				max-width: none;
+				margin: 30px 46px 0 0;
+				&:nth-child(2n) {
+					margin: 30px 0 0;
+				}
+				@media screen and (max-width: 580px) {
+					width: 100%;
+					margin: 30px 0 0;
+				}
+			}
+		}
+	}
+}
+
+.dashboard-password {
+	padding: 30px 50px 85px;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: row;
+	.load-spin {
+		@include radius(0 0 12px 12px);
+	}
+	.message {
+		@include font(18px, 500);
+		margin: 0 0 20px;
+		&.invalid {
+			color: #e92a16;
+		}
+		&.valid {
+			color: #00a500;
+		}
+	}
+	h2 {
+		margin: 0 0 60px;
+		@include font(26px, 500);
+	}
+	.fields {
+		.form-field {
+			width: 300px;
+			margin: 0 0 30px 0;
+		}
+	}
+	.submit {
+		margin: 60px 0 0;
+		button {
+			padding: 10px 40px;
+		}
+	}
+	.password-section {
+		&.funds {
+			margin: 0 0 0 200px;
+		}
+	}
+	@media screen and (max-width: 960px) {
+		justify-content: space-between;
+		.password-section {
+			&.funds {
+				margin: 0;
+			}
+		}
+	}
+	@media screen and (max-width: 810px) {
+		flex-direction: column;
+		.password-section {
+			width: 100%;
+			.fields {
+				.form-field {
+					width: 100%;
+					min-width: auto;
+					max-width: none;
+				}
+			}
+			&.funds {
+				margin: 80px 0 0;
+			}
+		}
+	}
+}
+
+.dashboard-payment {
+	padding: 30px 50px 90px;
+	.load-spin {
+		@include radius(0 0 12px 12px);
+	}
+	h2 {
+		color: #212533;
+		margin: 0 0 20px;
+		@include font(26px, 500);
+	}
+	.cards-list {
+		padding: 0 0 20px;
+		margin: 0 0 20px;
+		border-bottom: 1px solid #dfebef;
+		.cards-list--wrap {
+			font-size: 0;
+			.card {
+				min-width: 280px;
+				margin: 0 40px 20px 0;
+				display: inline-block;
+				vertical-align: top;
+				position: relative;
+				@include radius(5px);
+				@include gradient2(to right, #c1ea4f, #8bdc65 45%, #16885f 100%);
+				&:nth-child(3n) {
+					margin-right: 0;
+				}
+				&:before {
+					content: '';
+					background: #fff;
+					@include radius(3px);
+					@include position(absolute, $top: 2px, $right: 2px, $bottom: 2px, $left: 2px);
+				}
+				&-content {
+					padding: 0 20px;
+					position: relative;
+					z-index: 100;
+					min-height: 68px;
+					align-items: center;
+					justify-content: center;
+					@include flex-center;
+					h4 {
+						color: #212533;
+						@include font(20px, 500, 1.4);
+					}
+				}
+			}
+		}
+	}
+	.cards-form {
+		h2 {
+			margin: 0 0 30px;
+		}
+		.cards-form--wrap {
+			.form-field {
+				width: 280px;
+				margin: 0 40px 20px 0;
+				display: inline-block;
+				vertical-align: top;
+				&:nth-child(3n) {
+					margin-right: 0;
+				}
+				&:nth-last-child(-n+3) {
+					margin-bottom: 0;
+				}
+			}
+		}
+		.submit {
+			margin: 40px 0 0;
+			button {
+				padding: 10px 40px;
+			}
+		}
+	}
+	@media screen and (max-width: 1080px) {
+		.cards-form {
+			.cards-form--wrap {
+				.fields {
+					display: flex;
+					flex-wrap: wrap;
+					.form-field {
+						flex: 1 0 28%;
+						width: auto;
+						&:last-child {
+							margin: 0;
+						}
+					}
+					@media screen and (max-width: 780px) {
+						.form-field {
+							flex: 1 0 33%;
+							&:nth-child(odd) {
+								margin: 0 30px 0 0;
+							}
+							&:nth-child(2n) {
+								margin: 0 0 30px;
+							}
+							&:last-child {
+								margin: 0;
+							}
+						}
+					}
+					@media screen and (max-width: 580px) {
+						.form-field {
+							flex: 1 0 100%;
+							margin: 0 0 30px !important;
+							&:last-child {
+								margin: 0 !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.dashboard-betting-history {
+	.load-spin {
+		@include radius(0 0 12px 12px);
+	}
+	.back-button {
+		padding: 10px 10.5px;
+		position: absolute;
+		top: -53px;
+		left: 21px;
+		svg {
+			fill: #16885f;
+		}
+	}
+	.games-list {
+		padding: 30px 50px 60px 60px;
+		.games-list--category {
+			margin: 20px 0 0;
+			&:nth-child(1) {
+				margin: 0;
+			}
+			h3 {
+				color: #212533;
+				margin: 0 0 10px;
+				padding: 0 0 0 10px;
+				@include font(22px, 500, 1.7);
+			}
+			.games-list--items {
+				display: flex;
+			}
+			@media screen and (max-width: 1090px) {
+				h3 {
+					margin: 0;
+				}
+				.games-list--items {
+					flex-wrap: wrap;
+				}
+				.games-list--item {
+					margin: 10px 10px 0 0;
+					&:last-child {
+						margin: 10px 0 0;
+					}
+				}
+			}
+		}
+		.games-list--item {
+			cursor: pointer;
+			min-width: 294px;
+			min-height: 110px;
+			padding: 15px 0;
+			border: 1px solid #dfebef;
+			margin: 0 15px 0 0;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			@include radius(10px);
+			&:last-child {
+				margin: 0;
+			}
+			.logo {
+				margin: 0 auto;
+				background: no-repeat center center/cover;
+			}
+			&.BTI体育 .logo {
+				@include size(110px, 44px);
+				background-image: url(../img/transfer/BTI体育.png);
+			}
+			&.IM体育 .logo {
+				@include size(171px, 36px);
+				background-image: url(../img/transfer/IM体育.png);
+			}
+			&.沙巴体育 .logo {
+				@include size(100px, 41px);
+				background-image: url(../img/transfer/沙巴体育.png);
+			}
+			&.AG真人 .logo {
+				@include size(116px, 40px);
+				background-image: url(../img/transfer/AG真人.png);
+			}
+			&.EB真人 .logo {
+				@include size(137px, 42px);
+				background-image: url(../img/transfer/EBET真人.png);
+			}
+			&.IM电竞 .logo {
+				@include size(173px, 37px);
+				background-image: url(../img/transfer/IM电竞.png);
+			}
+			&.CQ电子 .logo {
+				@include size(101px, 49px);
+				background-image: url(../img/transfer/CQ电子.png);
+			}
+			&.PT电子 .logo {
+				@include size(189px, 42px);
+				background-image: url(../img/transfer/PT电子.png);
+			}
+			&.MG电子 .logo {
+				@include size(143px, 47px);
+				background-image: url(../img/transfer/MG电子.png);
+			}
+			&.开元棋牌 .logo {
+				@include size(152px, 42px);
+				background-image: url(../img/transfer/开元棋牌.png);
+			}
+		}
+	}
+	.game-history {
+		padding: 30px 100px 130px;
+		.game-history--item {
+			cursor: pointer;
+			background: #fff;
+			margin: 0 0 15px;
+			@include radius(10px);
+			&:last-child {
+				margin: 0;
+			}
+			&.opened {
+				.content {
+					@include radius(10px 0 0 0);
+				}
+				.status {
+					@include radius(0 10px 0 0);
+				}
+			}
+		}
+		.game-history--item-wrap {
+			display: flex;
+			.content {
+				flex: 1;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 17px 40px;
+				border: 1px solid #dfebef;
+				border-right: 0;
+				@include radius(10px 0 0 10px);
+				p {
+					@include font(18px, 500, 26px);
+				}
+				p.timestamp {
+					color: #55687d;
+				}
+				p.name {
+					color: #212533;
+				}
+				p.amount {
+					color: #55687d;
+				}
+			}
+			.status {
+				min-width: 108px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				@include radius(0 10px 10px 0);
+				&.status--green {
+					background: #16885f;
+				}
+				&.status--red {
+					background: #db0100;
+				}
+				p {
+					color: #fff;
+					@include font(18px, 500, 20px);
+				}
+			}
+		}
+		.game-history--item-subwrap {
+			padding: 12px 32px;
+			border: 1px solid #dfebef;
+			border-top: 0;
+			@include radius(0 0 12px 12px);
+			table {
+				width: 100%;
+				border-spacing: 8px;
+				border-collapse: separate;
+			}
+			tr {
+				td {
+					vertical-align: top;
+				}
+				td:first-child {
+					white-space: nowrap;
+					text-align: right;
+					color: #55687d;
+					@include font(18px, 400);
+				}
+				td:last-child {
+					width: 100%;
+					color: #212533;
+					@include font(18px, 500);
+				}
+			}
+		}
+	}
+}
+
+.dashboard-withdraw {
+	padding: 30px 50px 85px;
+	h2 {
+		color: #212533;
+		@include font(27px, 500);
+	}
+	.message {
+		@include font(18px, 500);
+		margin: 0 0 20px;
+		&.invalid {
+			color: #e92a16;
+		}
+		&.valid {
+			color: #00a500;
+		}
+	}
+	.fields {
+		width: 300px;
+		margin: 60px 0 0;
+		@media screen and (max-width: 810px) {
+			width: 100%;
+		}
+	}
+	.submit {
+		margin: 60px 0 0;
+		button {
+			padding: 10px 40px;
+		}
+	}
+}

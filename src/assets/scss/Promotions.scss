@@ -1,0 +1,117 @@
+@import '_mixin';
+
+$wrap-width: 690px;
+$side-padding: 20px;
+
+.promotions {
+	position: relative;
+	.promotions-flex-wrap {
+		display: flex;
+		justify-content: center;
+	}
+	&-inner {
+		width: $wrap-width + ($side-padding * 2);
+		padding: 50px $side-padding;
+	}
+	&.single {
+		.promotions-inner {
+			width: 890 + ($side-padding * 2);
+			padding: 50px $side-padding;
+			.banner-inner {
+				padding: 20px;
+			}
+		}
+	}
+	.banner {
+		display: block;
+		padding: 5px;
+		@include radius(5px);
+		@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+		@include gradient2(to right, #c1ea4f 0%, #8bdc65 45%, #16885f 100%);
+		&:not(:last-child) {
+			margin: 0 0 60px;
+		}
+		&-inner {
+			background: #fff;
+			@include radius(5px);
+			img {
+				width: 100%;
+				display: block;
+			}
+		}
+		&-frame {
+			background: #fff;
+		}
+		.banner-img {
+			background: #f8f8f8;
+			img {
+				min-height: 201px;
+			}
+		}
+		.banner-title {
+			padding: 20px;
+			h4 {
+				@include font(20px, 500);
+			}
+		}
+		.banner-body {
+			padding: 20px;
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			p {
+				flex: 1;
+				@include font(18px, 400);
+			}
+			button {
+				color: #fff;
+				padding: 10px 40px;
+				@include font(16px, 500);
+				@include radius(60px);
+				@include gradient2(to right, #c1ea4f 0%, #8bdc65 45%, #16885f 100%);
+			}
+		}
+	}
+	.decor-n0,
+	.decor-n1,
+	.decor-n2,
+	.decor-n3 {
+		pointer-events: none;
+		background: no-repeat center center/cover;
+		@include position(absolute, $z-index: -1);
+	}
+	.decor-n0 {
+		background-image: url(../img/promotions/decor-n0.png);
+		top: -20px;
+		left: -11px;
+		right: auto;
+		@include size(607px, 607px);
+	}
+	.decor-n1 {
+		background-image: url(../img/promotions/decor-n1.png);
+		top: -80px;
+		left: auto;
+		right: 0;
+		@include size(658px, 512px);
+	}
+	.decor-n2 {
+		@include size(1px, 1160px);
+		div {
+			background: no-repeat center center/cover;
+			background-image: url(../img/promotions/decor-n2.png);
+			background-size: auto;
+			@include size(375px, 1160px);
+			@include position(absolute, $top: 0, $left: -380px, $right: auto, $bottom: 0);
+		}
+	}
+	.decor-n3 {
+		@include size(1px, 1160px);
+		div {
+			background: no-repeat center center/cover;
+			background-image: url(../img/promotions/decor-n3.png);
+			background-size: auto;
+			@include size(375px, 1160px);
+			@include position(absolute, $top: 0, $left: auto, $right: -380px, $bottom: 0);
+		}
+	}
+}

@@ -1,0 +1,107 @@
+@import '_reset';
+@import '_mixin';
+@import '_variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Roboto:wght@400;500&display=swap');
+
+/* Fonts:
+	Noto Sans SC: normal (400), medium (500), bold (700)
+	Montserrat: medium (500), bold (600), bold (700)
+	Roboto: normal (400), medium (500)
+ --------- */
+
+body {
+	background: #fff;
+	font-family: 'Noto Sans SC', sans-serif;
+}
+
+button, input {
+	font-family: 'Noto Sans SC', sans-serif;
+}
+
+body.promotions-page {
+	background: #dfebef;
+}
+body.dashboard-page {
+	background: #f0f4f5;
+}
+body.login-page {
+	.app {
+		padding: 0;
+	}
+}
+
+.app {
+	padding: 80px 0 0;
+	position: relative;
+}
+
+.button-default {
+	color: #fff;
+	background: $color-primary;
+	padding: 7.5px;
+	min-width: 80px;
+	@include font(16px, 400, 23px);
+	@include select(none);
+	@include radius(5px);
+	@include transition(opacity .2s ease, background .2s ease, transform .2s ease);
+	&:disabled {
+		cursor: default;
+		opacity: .6;
+		pointer-events: none;
+	}
+	&:not(:disabled):active {
+		color: #fff;
+		@include transform(scale(.96));
+	}
+	&:not(:disabled):hover {
+		background: darken($color-primary, 12);
+	}
+	&.secondary {
+		background: $color-secondary;
+		&:not(:disabled):hover {
+			background: darken($color-secondary, 6);
+		}
+	}
+}
+
+@keyframes loader {
+	to {
+		@include transform(rotate(360deg));
+	}
+}
+
+.with-loader {
+	$load_size: 50px;
+	position: relative;
+	.load-spin {
+		opacity: 0;
+		pointer-events: none;
+		background: transparentize(#fff, .2);
+		@include position(absolute, $z-index: 101, $top: 0, $left: 0, $right: 0, $bottom: 0);
+		@include transition(opacity .2s ease);
+		&:before {
+			content: '';
+			animation: loader 1.2s ease infinite;
+			border: 2.5px solid #e9ecf1;
+			border-top-color: #8bdc65;
+			@include size($load_size, $load_size);
+			@include radius(50%);
+			@include position(absolute, $top: calc(50% - (#{$load_size}/2)), $left: calc(50% - (#{$load_size}/2)));
+		}
+	}
+	&.loading {
+		.load-spin {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
+}
+
+button.button-stylized {
+	color: #fff;
+	white-space: nowrap;
+	@include font(20px, 400);
+	@include radius(40px);
+	@include gradient2(95deg, #c1ea4f 2%, #8bdc65 45%, #16885f 100%);
+}

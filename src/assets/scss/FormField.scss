@@ -1,0 +1,74 @@
+@import '_mixin';
+
+.form-field {
+	margin: 0 0 20px;
+	&:last-child {
+		margin: 0;
+	}
+	label {
+		color: #212533;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 140%;
+		display: block;
+		margin: 0 0 6px;
+		padding: 0 0 0 14px;
+		@include transition(color .2s ease);
+	}
+	input,
+	.input-like {
+		width: 100%;
+		padding: 10.5px 16px;
+		color: #55687D;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 140%;
+		border: 1px solid #dfebef;
+		background: #fff;
+		@include radius(5px);
+		@include transition(border-color .2s ease);
+		&[type=password] {
+			font-family: sans-serif !important;
+		}
+		&:disabled,
+		&.disabled {
+			opacity: .5;
+			color: hsl(210, 5%, 70%) !important;
+			cursor: default;
+			-webkit-text-fill-color: hsl(210, 5%, 70%);
+		}
+	}
+	.input-like {
+		cursor: pointer;
+	}
+	.form-field--input-wrap {
+		&.with-arrow {
+			position: relative;
+			&:before {
+				content: '';
+				width: 10px;
+				height: 6px;
+				display: block;
+				pointer-events: none;
+				background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAuNjcyODYxIDBIOS4zMjcxNEM5LjkyNTg0IDAgMTAuMjI1MiAwLjc2NDg5OCA5LjgwMTM5IDEuMjEzMTZMNS40NzU5MyA1Ljc5MTg4QzUuMjEzNTggNi4wNjkzNyA0Ljc4NjQyIDYuMDY5MzcgNC41MjQwNyA1Ljc5MTg4TDAuMTk4NjA4IDEuMjEzMTZDLTAuMjI1MTkzIDAuNzY0ODk4IDAuMDc0MTU4NiAwIDAuNjcyODYxIDBaIiBmaWxsPSIjOEU5QkFFIi8+PC9zdmc+);
+				@include position(absolute, $z-index: 10, $top: calc(50% - 3px), $right: 16px);
+			}
+		}
+	}
+	&--invalid {
+		label {
+			color: #e4451b;
+		}
+		input {
+			border-color: #e4451b;
+		}
+	}
+	.input-p {
+		width: 100%;
+		padding: 10.5px 16px;
+		color: #55687D;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 140%;
+	}
+}

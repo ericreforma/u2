@@ -1,0 +1,72 @@
+@import '../../../assets/scss/mixin';
+
+.slider-sa {
+	min-width: 320px;
+	.slider--item {
+		width: 100%;
+		min-height: 185px;
+	}
+	.slick-track {
+		div {
+			outline: none;
+			font-size: 0;
+			img {
+				width: 100%;
+				height: 185px;
+				display: block;
+				object-fit: cover;
+			}
+		}
+		.slick-slide{
+			padding: 5px 5px 0 5px;
+			>div{
+				@include radius(10px);
+				overflow: hidden;
+			}
+		}
+	}
+	.slick-dots{
+		position: absolute;
+		/* width: 200px; */
+		width: auto;
+		right: 0;
+		bottom: 0;
+		display: inline-block !important;
+		margin-bottom: 10px;
+		margin-right: 18px;
+		li{
+			margin: 0;
+			width: 10px;
+			height: auto;
+			button{
+				border: 1px solid #ffff;
+				border-radius: 100%;
+				padding: 0;
+				width: 7px;
+				height: 7px;
+				position: relative;
+				&:before{
+					content: '';
+				}
+			}
+		}
+		li.slick-active{
+			button{
+				background-color: #fff;
+			}
+		}
+
+	}
+	@media screen and (min-width: 767px) {
+		.slider--item {
+			min-height: 339px;
+		}
+		.slick-track {
+			div {
+				img {
+					height: 339px;
+				}
+			}
+		}
+	}
+}

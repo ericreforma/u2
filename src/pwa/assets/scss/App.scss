@@ -1,0 +1,71 @@
+@import '../../../assets/scss/mixin';
+@import './variables.scss';
+
+@font-face {
+    font-family: 'msyh';
+    src: url('/static/media/font/msyh.ttf');
+}
+
+body.body-pwa {
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	* {
+		font-family: 'msyh';
+	}
+}
+
+body.pwa-home-page {
+	.app-sa {
+		padding: #{$head}px 0 0;
+		@media screen and (min-width: 767px) {
+			padding: #{$head-tablet}px 0 0;
+		}
+	}
+}
+
+.app-sa {
+	height: 100vh;
+	min-width: 375px;
+	.app-sa-head {
+		min-width: 320px;
+		max-height: #{$head}px;
+		@media screen and (min-width: 767px) {
+			max-height: #{$head-tablet}px;
+		}
+		background: #fff;
+		background-image: url('../img/_background/home_bg.png');
+		background-position: center;
+		background-size: cover;
+		overflow: hidden;
+		@include radius(0 0 20px 20px);
+		@include shadow(0 4px 16px rgba(42, 51, 84, 0.12));
+		@include position(fixed, $z-index: 998, $top: 0, $left: 0, $right: 0, $bottom: auto);
+	}
+	.app-sa-header {
+		min-width: 320px;
+		padding: 10px 20px 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.logo {
+			width: 107px;
+			height: 40px;
+			background: url(../../../assets/img/png/logo.png) no-repeat center center/cover;
+		}
+	}
+	.app-sa-ticker {
+		white-space: nowrap;
+		padding: 10px 0 17px 0;
+		position: relative;
+		height: 46px;
+		cursor: pointer;
+		.ticker {
+			padding: 0;
+			p{
+				color: $COLOR_blue;
+				font-size: 14px;
+			}
+		}
+	}
+}

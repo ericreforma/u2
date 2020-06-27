@@ -1,0 +1,50 @@
+@import '../../../assets/scss/mixin';
+
+.ticker-over-sa {
+	@include overlay(
+		$background-color: rgba(#8e9bae, .5),
+	);
+	position: fixed;
+	overflow-y: auto;
+	overflow-x: hidden;
+	&--sublayer {
+		width: 90%;
+	}
+	&--layer {
+		padding: 20px 30px 30px;
+		background: rgba(#fff, .95);
+		position: relative;
+		@include radius(5px);
+		.close {
+			@include size(26px, 26px);
+			@include position(absolute, $z-index: 1000, $top: 20px, $right: 20px);
+		}
+	}
+	h1 {
+		text-align: center;
+		margin: 0 0 10px;
+		color: #c9dadf;
+		@include font(22px, 600);
+	}
+	h2, h2 p, h2 .text-shadow {
+		font-size: 42px;
+	}
+	h2 {
+		p {
+			margin: 0;
+		}
+	}
+	.nt-list--item {
+		margin: 24px 0 0;
+		h4 {
+			color: #212533;
+			white-space: normal;
+			@include font(18px, 500);
+		}
+		p {
+			color: #55687d;
+			margin: 10px 0 0;
+			@include font(16px, 400);
+		}
+	}
+}

@@ -1,0 +1,72 @@
+@import '_mixin';
+
+.app-download {
+	$side-padding: 20px;
+	background: url(../img/bgs/bg-grey@1.png) no-repeat top 170px left calc(50% + 120px);
+	min-width: 1360px + ($side-padding * 2);
+	&-inner {
+		width: 1360px + ($side-padding * 2);
+		margin: 0 auto;
+		padding: 0 $side-padding;
+		padding-bottom: 170px;
+	}
+	.ad-flex {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.ad-phone {
+			width: 675px;
+			height: 634px;
+			background: url(../img/app-download/phone-wrap.png) no-repeat center center/cover;
+		}
+		.ad-links {
+			padding: 64px 216px 0 0;
+			&-wrap {
+				display: flex;
+			}
+			h4 {
+				color: #212533;
+				margin: 0 0 27px;
+				@include font(32px, 400, 1.3);
+			}
+			.ad-link {
+				font-size: 0;
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 179px;
+				@include radius(20px);
+				@include gradient2(to right, #c1ea4f 0%, #8bdc65 45%, #16885f 100%);
+				& > p {
+					margin: 0 !important;
+					color: #000 !important;
+					font-size: 33px !important;
+					font-weight: 700 !important;
+					line-height: 1.3 !important;
+				}
+				&:after {
+					content: '';
+					background: #fff;
+					@include radius(16px);
+					@include position(absolute, $z-index: 5, $top: 4px, $left: 4px, $right: 4px, $bottom: 4px);
+				}
+				&-wrap {
+					width: 187px;
+					&:not(:last-child) {
+						margin: 0 21px 0 0;
+					}
+					p {
+						color: #55687d;
+						text-align: center;
+						margin: 15px 0 0;
+						@include font(22px, 400, 1.3);
+					}
+					p, svg {
+						@include position(relative, $z-index: 10);
+					}
+				}
+			}
+		}
+	}
+}
